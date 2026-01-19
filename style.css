@@ -1,0 +1,625 @@
+/* =========================================
+   VARIABLES CSS & RESET
+   ========================================= */
+:root {
+    --bg-color: #050505;       /* Noir profond */
+    --card-bg: #121212;        /* Gris très sombre pour les cartes */
+    --text-main: #e0e0e0;      /* Blanc cassé pour lecture */
+    --text-muted: #a0a0a0;     /* Gris pour sous-titres */
+    --accent-green: #00ff41;   /* Vert Matrix (Action) */
+    --accent-blue: #00e5ff;    /* Bleu Cyan (Tech) */
+    --border-color: #333;
+    --font-main: 'Roboto', sans-serif;
+    --font-code: 'Fira Code', monospace;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   PERSONNALISATION NAVIGATEUR (AJOUTS PRO)
+   ========================================= */
+
+/* 1. Couleur de sélection du texte (Surlignage) */
+::selection {
+    background: var(--accent-green);
+    color: #000;
+}
+
+/* 2. Barre de défilement (Scrollbar) style Cyber */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-green);
+}
+
+/* 3. Accessibilité : Contour au clavier (Tab) */
+a:focus, button:focus, .btn:focus {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   TYPOGRAPHIE & UTILITAIRES
+   ========================================= */
+h1, h2, h3 {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent-green);
+    margin: 10px auto 0;
+    box-shadow: 0 0 10px var(--accent-green);
+}
+
+p { margin-bottom: 1rem; color: var(--text-muted); }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.highlight { color: var(--accent-green); }
+.tech-font { font-family: var(--font-code); }
+
+section { padding: 80px 0; }
+.dark-section { background-color: var(--card-bg); border-top: 1px solid #222; border-bottom: 1px solid #222; }
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.logo span { color: var(--accent-green); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-green);
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+/* Menu Mobile Toggle */
+.menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    padding-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    font-family: var(--font-code);
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+.hero-content h2::after { display: none; }
+
+.hero-typing {
+    border-right: 2px solid var(--accent-green);
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink { 50% { border-color: transparent; } }
+
+.hero-btns {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 10px;
+    border: 1px solid var(--accent-green);
+    color: var(--accent-green);
+    text-decoration: none;
+    font-family: var(--font-code);
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: var(--transition);
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--accent-green);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.btn-outline {
+    border-color: var(--text-main);
+    color: var(--text-main);
+}
+.btn-outline:hover {
+    background: var(--text-main);
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   À PROPOS & TIMELINE
+   ========================================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid #333;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background: var(--bg-color);
+    border: 2px solid var(--accent-green);
+    border-radius: 50%;
+}
+
+.timeline-date {
+    font-family: var(--font-code);
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* =========================================
+   COMPÉTENCES (GRID)
+   ========================================= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    background: var(--card-bg);
+    padding: 25px;
+    border: 1px solid #222;
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-green);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.skill-category h3 {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--accent-green);
+}
+
+/* --- CONTENEUR DES TAGS --- */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: auto; /* Aligne le contenu en haut si la carte est grande */
+}
+
+/* --- STYLE DU TAG (ex: PYTHON) --- */
+.tag {
+    /* Fond et couleur par défaut */
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Forme */
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    font-family: var(--font-code); /* Police style code */
+    border-radius: 4px;
+    
+    /* Interaction */
+    cursor: default;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* --- STYLE DU TAG AU SURVOL (ex: PASSER SUR PYTHON) --- */
+.tag:hover {
+    /* Devient vert vif */
+    background: var(--accent-green);
+    color: #000;
+    border-color: var(--accent-green);
+    
+    /* Effet néon et léger mouvement */
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+    transform: translateY(-2px); 
+}
+/* =========================================
+   CERTIFICATIONS (BADGES)
+   ========================================= */
+/* --- CONTENEUR --- */
+.cert-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* --- CARTE PRINCIPALE --- */
+.cert-badge {
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    padding: 25px 30px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    min-width: 220px;
+    
+    /* Force l'ordre vertical */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    
+    /* Animation fluide pour le levitement de la carte */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+/* Effet au survol de la CARTE : Elle lève et s'illumine */
+.cert-badge:hover {
+    transform: translateY(-5px); /* Monte de 5px vers le haut */
+    box-shadow: 0 10px 20px rgba(0, 255, 65, 0.15); /* Ombre verte douce */
+    border-color: var(--accent-green);
+}
+
+/* --- LOGO --- */
+.cert-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain; /* Garde les proportions */
+    
+    /* Aucun filtre ici, donc le logo est en couleur d'origine */
+    
+    transition: transform 0.3s ease;
+}
+
+/* Effet au survol : Un simple zoom léger */
+.cert-badge:hover .cert-logo {
+    transform: scale(1.1);
+}
+
+/* --- PHOTO DE CERTIFICATION (VIGNETTE) --- */
+.cert-capture {
+    width: 100%;
+    height: 80px; /* Petite vignette par défaut */
+    object-fit: cover; /* Coupe l'image pour remplir le cadre */
+    border-radius: 4px;
+    
+    /* Plus besoin de margin-top car 'gap: 15px' gère l'espace dans le parent */
+    
+    opacity: 0.6; /* Légèrement transparent */
+    border: 1px solid #333;
+    transition: opacity 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+/* Effet au survol : La vignette grandit et devient opaque */
+.cert-badge:hover .cert-capture {
+    opacity: 1;
+    height: 110px; /* S'agrandit pour montrer plus de détails */
+    border-color: var(--accent-green);
+}
+
+/* =========================================
+   PROJETS (CARDS)
+   ========================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.project-header {
+    padding: 20px;
+    background: #1a1a1a;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+        
+.project-header h3 { margin: 0; font-size: 1.2rem; }
+.project-icons i { margin-left: 10px; color: var(--text-muted); }
+
+.project-body { padding: 20px; flex-grow: 1; }
+
+.methodology-list {
+    list-style: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+.methodology-list li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+.methodology-list li::before {
+    content: '>';
+    color: var(--accent-green);
+    margin-right: 10px;
+    font-family: var(--font-code);
+}
+
+.project-footer { padding: 20px; text-align: center; border-top: 1px solid #333; }
+
+/* =========================================
+   CENTRES D'INTÉRÊT & CONTACT
+   ========================================= */
+.interests-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.interest-item {
+    text-align: center;
+    width: 150px;
+}
+
+.interest-item i {
+    font-size: 2.5rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    transition: var(--transition);
+}
+.interest-item:hover i { color: var(--accent-green); transform: scale(1.1); }
+
+footer {
+    background: #000;
+    padding: 50px 0 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-links {
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-green);
+}
+
+/* --- IMAGE DE PROFIL DANS LA NAVIGATION --- */
+.nav-profile-img {
+    width: 70px;          /* Largeur de la photo */
+    height: 60px;         /* Hauteur de la photo (identique à la largeur pour un carré) */
+    border-radius: 50%;   /* Transforme le carré en cercle parfait */
+    object-fit: cover;   /* Coupe l'image si elle n'est pas carrée pour ne pas la déformer */
+    margin-right: 10px;  /* Espace entre la photo et le texte */
+    vertical-align: middle; /* Aligne la photo au milieu du texte (ni en haut, ni en bas) */
+    border: 2px solid var(--accent-green); /* Optionnel : Une bordure verte autour de la photo */
+}
+
+/* =========================================
+   RESPONSIVE (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+            
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--card-bg);
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #333;
+    }
+            
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+            
+    .about-grid { grid-template-columns: 1fr; }
+}
+
+/* --- MODAL (POP-UP POUR LES PHOTOS) --- */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 2000; /* Au-dessus de tout (nav, footer, etc.) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95); /* Fond noir quasi opaque */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer; /* Indique qu'on peut cliquer pour fermer */
+}
+
+/* Classe activée par le JS pour montrer la fenêtre */
+.modal.show {
+    display: flex;
+}
+
+/* L'image en grand dans le modal */
+.modal-img {
+    max-width: 90%;
+    max-height: 85vh; /* Ne déborde pas de l'écran */
+    border: 2px solid var(--accent-green);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    animation: zoomIn 0.2s ease;
+}
+
+/* Animation d'ouverture */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Bouton de fermeture (en haut à droite) */
+/* L'image en grand dans le modal */
+.modal-img {
+    width: auto;        /* Laisse l'image prendre sa taille réelle */
+    height: auto;       /* Laisse l'image prendre sa taille réelle */
+    
+    max-width: 95%;     /* Augmenté : Prend quasiment toute la largeur de l'écran */
+    max-height: 95vh;   /* Augmenté : Prend quasiment toute la hauteur de l'écran */
+    
+    object-fit: contain; /* Assure que l'image ne soit pas déformée */
+    
+    border: 2px solid var(--accent-green);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    animation: zoomIn 0.2s ease;
+}
+.close-modal:hover {
+    color: var(--accent-green);
+}

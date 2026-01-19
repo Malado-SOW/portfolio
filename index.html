@@ -3,50 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio Cybersécurité</title>
-    <style>
-        /* Un peu de CSS pour que ce soit présentable tout de suite */
-        body {
-            background-color: #0d0d0d; /* Fond très sombre */
-            color: #00ff41; /* Vert "Matrix" pour le texte */
-            font-family: 'Courier New', Courier, monospace; /* Police style terminal */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            text-transform: uppercase;
-            border-bottom: 2px solid #00ff41;
-            padding-bottom: 10px;
-        }
-        .container {
-            text-align: center;
-            border: 1px solid #00ff41;
-            padding: 40px;
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
-        }
-        .status {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-    </style>
+    <meta name="description" content="Portfolio de Malado SOW - Étudiant en Cybersécurité et Pentester Junior.">
+    <title>Malado SOW | Cybersécurité</title>
+    
+    <!-- Google Fonts : Roboto (Texte) et Fira Code (Code/Tech) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
-    <div class="container">
-        <h1>System Secure</h1>
-        <p>Bienvenue sur mon portfolio professionnel.</p>
-        <p>Étudiant en Cybersécurité & Pentester à Esiglec.</p>
-        
-        <div class="status">
-            > Status: ONLINE<br>
-            > Connection: SECURE
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#home" class="logo">
+            <!-- Remplace "malado-photo.jpg" par le vrai nom de ton fichier -->
+            <img src="malado_Photo.jpg" alt="Photo Malado" class="nav-profile-img">
+            Malado<span> SOW</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#experience">EXPÉRIENCES</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
+    <!-- HERO SECTION -->
+    <section id="home">
+        <div class="container hero-content">
+            <h1>Bonjour, je suis <span class="highlight">Malado SOW</span></h1>
+            <h2 class="tech-font"><span class="hero-typing">Étudiant en Cybersécurité</span></h2>
+            <p style="max-width: 600px; margin: 0 auto 20px;">
+                Spécialiste en tests d'intrusion, durcissement de systèmes et analyse de vulnérabilités.
+                Je transforme les failles en solutions de défense.
+            </p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn">Voir mes projets</a>
+                <a href="CV MALADO SFE.pdf" class="btn btn-outline"><i class="fas fa-download"></i> CV PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="about" class="dark-section">
+        <div class="container">
+            <h2>Qui suis-je ?</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Passionné par l'informatique depuis mon plus jeune âge, j'ai orienté mes études vers la <strong>sécurité des systèmes d'information</strong>. 
+                        Mon objectif est de comprendre les mécanismes d'attaque pour mieux construire des défenses robustes.
+                    </p>
+                    <p>
+                        Actuellement étudiant en Master Cybersécurité, je passe mon temps à explorer les dernières failles (CVE), participer aux CTF (Capture The Flag) et automatiser des tâches d'audit via Python.
+                    </p>
+                    <p class="tech-font" style="color: var(--accent-green);">> Motivation : Devenir Pentester certifié OSCP.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2023 - Présent</span>
+                        <h3>Etudiant Ingénieur Cybersécurité</h3>
+                        <p>Esigelec - Spécialité Cybersécurité.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021 - 2023</span>
+                        <h3>Classe Préparatoire aux Grande Ecole</h3>
+                        <p>Lycée Emmanuelle D'alzon - MPSI/MP.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021</span>
+                        <h3>Baccalauréat Scientifique</h3>
+                        <p>Lycée Lamine Gueye - S1.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="cert-container">
+                
+                <div class="cert-badge">
+                    <!-- 1. Logo de l'organisme (CompTIA) -->
+                    <img src="cisco_logo.jpg" alt="Logo CompTIA" class="cert-logo">
+                    <!-- 2. Nom du certificat -->
+                    <h4>Introduction to cyberseurity</h4>
+                    <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
+                    <!-- 4. Photo de la certification (Vignette) -->
+                        <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
+                    </a>
+                </div>
+
+                <div class="cert-badge">
+                    <!-- 1. Logo de l'organisme (CompTIA) -->
+                    <img src="ceh_logo.jpg" alt="Logo CEH" class="cert-logo">
+                    <!-- 2. Nom du certificat -->
+                    <h4>CEH</h4>
+                    <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
+                    <!-- 4. Photo de la certification (Vignette) -->
+                        <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
+                    </a>
+                </div>
+
+                <div class="cert-badge">
+                    <!-- 1. Logo de l'organisme (CompTIA) -->
+                    <img src="anssi_logo.jpg" alt="Logo ANSSI" class="cert-logo">
+                    <!-- 2. Nom du certificat -->
+                    <h4>SecNumacadémie</h4>
+                    <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
+                    <!-- 4. Photo de la certification (Vignette) -->
+                        <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
+                    </a>
+                </div>
+
+                <div class="cert-badge">
+                    <!-- 1. Logo de l'organisme (CompTIA) -->
+                    <img src="ebios_logo.jpg" alt="Logo EBIOS" class="cert-logo">
+                    <!-- 2. Nom du certificat -->
+                    <h4>Ebios Risk Manager</h4>
+                    <a href="javascript:void(0)" class="cert-link" onclick="openModal(this)">
+                    <!-- 4. Photo de la certification (Vignette) -->
+                        <img src="cisco.jpg" alt="Certificat Security+" class="cert-capture">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="skills" class="dark-section">
+        <div class="container">
+            <h2>Compétences Techniques</h2>
+            <div class="skills-grid">
+                
+                <!-- Catégorie 1 : Systèmes & Réseaux -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Systèmes & Réseaux</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Windows Server & AD</span>
+                        <span class="tag">Linux (Kali/Ubuntu)</span>
+                        <span class="tag">Virtualisation (VirtualBox - Proxmox)</span>
+                        <span class="tag">Cisco / Packet Tracer</span>
+                        <span class="tag">Services (DNS, iRedMail)</span>
+                        <span class="tag">VLAN & Segmentation</span>
+                    </div>
+                </div>
+
+                <!-- Catégorie 2 : Cybersécurité & Supervision -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Sécurité & Audit</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Pare-feu (pfSense)</span>
+                        <span class="tag">Analyse Trafic (Wireshark)</span>
+                        <span class="tag">SIEM (Wazuh)</span>
+                        <span class="tag">Supervision (Centreon)</span>
+                        <span class="tag">Hardening & ACLs</span>
+                        <span class="tag">Gestion IAM</span>
+                    </div>
+                </div>
+
+                <!-- Catégorie 3 : Développement & Scripting -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Dev & Scripting</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Bash / PowerShell</span>
+                        <span class="tag">C / Java / PHP</span>
+                        <span class="tag">Web (HTML / CSS)</span>
+                        <span class="tag">Bases de données (SQL)</span>
+                    </div>
+                </div>
+
+                <!-- Catégorie 4 : Soft Skills & Méthodes -->
+                <div class="skill-category">
+                    <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Gestion de Projet (Trello)</span>
+                        <span class="tag">Méthode Agile</span>
+                        <span class="tag">Rédaction de Rapports</span>
+                        <span class="tag">Rigueur & Curiosité</span>
+                        <span class="tag">Esprit d'équipe</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projets Récents</h2>
+            <div class="projects-grid">
+                
+                <!-- Projet 1 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Pentest Machine "Legacy"</h3>
+                        <div class="project-icons"><i class="fab fa-linux"></i></div>
+                    </div>
+                    <div class="project-body">
+                        <p>Audit complet d'une machine vulnérable de type VulnHub. L'objectif était d'obtenir un accès root (Systemd).</p>
+                        <ul class="methodology-list">
+                            <li><strong>Recon :</strong> Nmap scan pour identifier ports 80/22.</li>
+                            <li><strong>Enum :</strong> Gobuster pour trouver des dossiers cachés.</li>
+                            <li><strong>Exploit :</strong> Exploitation d'une faille SUID.</li>
+                            <li><strong>Rapport :</strong> Rédaction d'un rapport final.</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir sur GitHub</a>
+                    </div>
+                </article>
+
+                <!-- Projet 2 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Keylogger Python</h3>
+                        <div class="project-icons"><i class="fab fa-python"></i></div>
+                    </div>
+                    <div class="project-body">
+                        <p>Développement d'un keylogger en Python à but éducatif pour comprendre les menaces de malware persistant.</p>
+                        <ul class="methodology-list">
+                            <li>Hooking des touches clavier.</li>
+                            <li>Envoi des logs par email chiffré.</li>
+                            <li>Obfuscation du code pour bypass AV.</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir le Code</a>
+                    </div>
+                </article>
+
+                <!-- Projet 3 -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Lab Réseau Sécurisé</h3>
+                        <div class="project-icons"><i class="fas fa-network-wired"></i></div>
+                    </div>
+                    <div class="project-body">
+                        <p>Mise en place d'une infrastructure réseau d'entreprise virtuelle sous GNS3 avec VLAN, Firewall et DMZ.</p>
+                        <ul class="methodology-list">
+                            <li>Segmentation du réseau (VLANs).</li>
+                            <li>Configuration ACLs sur le Pare-feu.</li>
+                            <li>VPN d'accès distant.</li>
+                        </ul>
+                    </div>
+                    <div class="project-footer">
+                        <a href="#" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 15px;">Voir l'Architecture</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPÉRIENCES -->
+    <section id="experience" class="dark-section">
+        <div class="container">
+            <h2>Expériences Professionnelles</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                       <span class="timeline-date">Avril 2025 - Juin 2025</span>
+                    <h3> Supervision de réseau </h3>
+                    <p><strong>Esigélec</strong></p>
+                    <ul class="methodology-list">
+                        <li>Mise en place de la supervision réseau avec Centreon pour surveiller les équipements et les performances du système.</li>
+                        <li>Configuration et maintien de plus de 15 hôtes et services (disponibilité, performances, seuils d’alerte).</li>
+                        <li>Analyse des alertes et logs en temps réel pour détecter et résoudre les incidents de sécurité.</li>
+                        <li>Rédaction de rapports détaillés sur l’état du réseau et les actions correctives effectuées.</li>
+                        <li>Résultats : Diminution des interruptions réseau par amélioration des seuils de monitoring</li>
+
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <span class="timeline-date">Septembre 2024 - Novembre 2024</span>
+                    <h3> Déploiement d’une infrastructure IT sécurisée complète </h3>
+                    <p><strong>Esigélec</strong></p>
+                    <ul class="methodology-list">
+                        <li>Mise en place d’une infra hybride (7 VM + 2 serveurs physiques) intégrant AD, DNS, mail sécurisé (iRedMail), pare-feu et serveur web.</li>
+                        <li>Centralisation IAM via LDAP/AD (authentification & messagerie)</li>
+                        <li>Administration de la sécurité réseau : ACL, sauvegardes automatisées (CRON), configuration sécurisée de switchs et routeurs.</li>
+                        <li>Supervision SIEM Wazuh : corrélation de logs, détection incidents</li>
+                        <li>Durcissement et segmentation réseau avancée : politiques pfSense (VLAN, NAT, filtrage IP/port/protocole).</li>
+                        <li>Gestion agile : Trello, daily reporting et coordination technique.</li>
+                        <li>Résultats : Réduction du temps de détection des incidents via alerting centralisé</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENTRES D'INTÉRÊT -->
+    <section id="interests">
+        <div class="container">
+            <h2>Centres d'Intérêt</h2>
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h4>CTF / Hacking</h4>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-code"></i>
+                    <h4>Open Source</h4>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-microchip"></i>
+                    <h4>Hardware</h4>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-running"></i>
+                    <h4>Athlétisme</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact">
+        <div class="container">
+            <h2>Me Contacter</h2>
+            <p>Vous avez un projet ou une opportunité ? N'hésitez pas.</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Malado-SOW" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/malado-sow/" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:malado15sow03@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <p class="tech-font" style="font-size: 0.8rem; color: #555;">
+                © 2024 Malado SOW. Built with HTML/CSS & Deployed via GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT (Pour le menu mobile) -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+    <!-- STRUCTURE HTML DU MODAL (VIDE AU DÉPART) -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-img" id="modalImg">
+</div>
+
+<!-- SCRIPT JAVASCRIPT -->
+<script>
+    // Fonction pour ouvrir le modal
+    function openModal(element) {
+        // 1. Récupère l'image à l'intérieur du lien cliqué
+        const img = element.querySelector('img');
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+
+        // 2. Met le lien de la petite image dans la grande image du modal
+        modalImg.src = img.src;
+
+        // 3. Affiche le modal
+        modal.classList.add("show");
+        
+        // Empêche le lien de recharger la page (le #)
+        event.preventDefault();
+    }
+
+    // Fonction pour fermer le modal
+    function closeModal() {
+        const modal = document.getElementById("imageModal");
+        modal.classList.remove("show");
+    }
+</script>
 </body>
 </html>
